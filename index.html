@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html><head>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>For Shru ❤️</title>
+<link rel="stylesheet" href="style.css">
+</head><body>
+<div class="hearts" id="hearts"></div>
+<div class="container">
+    <div>
+        <h1>Happy New Year 2026,<br>Shru ❤️</h1>
+        <div class="subtitle">From your Aaru 😘</div>
+
+        <!-- Christmas Countdown -->
+        <div class="christmas-countdown" id="christmasCountdown">
+            <p style="font-size:1.6em; margin:20px;">Christmas in:</p>
+            <div style="display:flex; justify-content:center; gap:15px; flex-wrap:wrap;">
+                <div class="count-box"><span id="christmasHours">00</span><div class="label">Hours</div></div>
+                <div class="count-box"><span id="christmasMinutes">00</span><div class="label">Minutes</div></div>
+            </div>
+        </div>
+
+        <img src="couple.jpg" class="photo" onerror="this.style.display='none'">
+    </div>
+    <div class="nav">
+        <button onclick="location.href='page2.html'">Open My Heart 😘</button>
+    </div>
+</div>
+<script src="script.js"></script>
+<script>
+// Christmas Countdown (Dec 25, 2025 00:00:00)
+const christmas = new Date("Dec 25, 2025 00:00:00").getTime();
+function updateChristmas() {
+    const now = new Date().getTime();
+    const distance = christmas - now;
+
+    if (distance < 0) {
+        document.getElementById("christmasCountdown").innerHTML = 
+            "<p style='font-size:2em; animation:pulse 3s infinite;'>Merry Christmas, my Princess! 🎄❤️</p>";
+        return;
+    }
+
+    const hours = Math.floor(distance / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+    document.getElementById("christmasHours").innerText = hours < 10 ? "0" + hours : hours;
+    document.getElementById("christmasMinutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+}
+setInterval(updateChristmas, 60000); // Update every minute
+updateChristmas();
+</script>
+</body></html>
